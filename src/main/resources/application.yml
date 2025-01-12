@@ -1,0 +1,29 @@
+spring:
+  flyway:
+    url: jdbc:postgresql://localhost:5432/diego
+    user: diego
+    password: diego
+    baseline-on-migrate: true
+  application:
+    name: diego
+  data:
+    redis:
+      password: ''
+      port: '6379'
+      host: localhost
+  r2dbc:
+    password: diego
+    url: r2dbc:postgresql://localhost:5432/diego
+    username: diego
+logging:
+  level:
+    org:
+      flywaydb: trace
+      springframework:
+        data:
+          redis:
+            cache: trace
+            nodeValue: trace
+        cache:
+          nodeValue: trace
+          interceptor: trace
