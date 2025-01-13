@@ -19,6 +19,18 @@ services:
     command: redis-server
     volumes:
       - redis-data:/data
+  springboot-app:
+    image: springboot-app
+    build: .
+    environment:
+      - URL_FLY=jdbc:postgresql://postgres:5432/diego
+      - URL_R=r2dbc:postgresql://postgres:5432/diego
+      - REDIS=redis
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
 
 volumes:
   redis-data:

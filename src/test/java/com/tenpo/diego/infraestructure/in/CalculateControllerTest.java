@@ -51,7 +51,7 @@ public class CalculateControllerTest {
 
     @Test
     void testCalculateRateLimitExceeded() throws Exception {
-        int allowedRequests = 3;
+        int allowedRequests = 2;
         int additionalRequests = 1;
 
         CalculateDto dto = createCalculateDto(BigDecimal.valueOf(20), BigDecimal.valueOf(10));

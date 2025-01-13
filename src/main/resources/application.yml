@@ -1,6 +1,6 @@
 spring:
   flyway:
-    url: jdbc:postgresql://localhost:5432/diego
+    url: ${URL_FLY}
     user: diego
     password: diego
     baseline-on-migrate: true
@@ -10,10 +10,10 @@ spring:
     redis:
       password: ''
       port: '6379'
-      host: localhost
+      host: ${REDIS}
   r2dbc:
     password: diego
-    url: r2dbc:postgresql://localhost:5432/diego
+    url: ${URL_R}
     username: diego
 logging:
   level:
