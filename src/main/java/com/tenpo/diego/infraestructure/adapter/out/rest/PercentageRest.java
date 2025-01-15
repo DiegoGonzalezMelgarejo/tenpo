@@ -17,6 +17,7 @@ import java.util.Random;
 
 public class PercentageRest implements PercentagePort {
     private static final int MAX_RETRIES = 3;
+    public static final double PERCENTAGE_VALUE = 0.1;
     private final Random random;
 
     public PercentageRest(Random random) {
@@ -47,7 +48,7 @@ public class PercentageRest implements PercentagePort {
                 .filter(success -> success)
                 .map(success -> {
                     log.info("Successful field service");
-                    return BigDecimal.valueOf(0.1);
+                    return BigDecimal.valueOf(PERCENTAGE_VALUE);
                 })
                 .switchIfEmpty(Mono.defer(() -> {
                     log.error("Simulating external service failure...");

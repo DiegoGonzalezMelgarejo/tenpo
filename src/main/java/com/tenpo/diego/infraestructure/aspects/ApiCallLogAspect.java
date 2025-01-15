@@ -33,7 +33,7 @@ public class ApiCallLogAspect {
                 .toArray();
         if (result instanceof Mono) {
             return ((Mono<?>) result)
-                    .doOnTerminate(() -> System.out.println("Método ejecutado: " + joinPoint.getSignature().getName()))
+                    .doOnTerminate(() -> log.info("Método ejecutado: {}" , joinPoint.getSignature().getName()))
                     .doOnSuccess(value ->
                             save(Arrays.toString(params), endpoint, value != null ? value.toString() : StringUtil.EMPTY_STRING,  StringUtil.EMPTY_STRING)
                                     .subscribe()
