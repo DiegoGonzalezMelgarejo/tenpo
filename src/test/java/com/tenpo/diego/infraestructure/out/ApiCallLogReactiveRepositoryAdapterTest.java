@@ -40,7 +40,7 @@ class ApiCallLogReactiveRepositoryAdapterTest {
 
     @Test
     void testSave() {
-        // Dado
+
         ApiCallLog apiCallLog = ApiCallLog.builder()
                 .error(null)
                 .endpoint("endpoint")
@@ -69,7 +69,7 @@ class ApiCallLogReactiveRepositoryAdapterTest {
 
     @Test
     void testFindAllBy() {
-        // Dado
+
         ApiCallLogEntity apiCallLogEntity = ApiCallLogEntity.builder()
                 .error(null)
                 .endpoint("endpoint")

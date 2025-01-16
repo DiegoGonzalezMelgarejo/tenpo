@@ -11,7 +11,7 @@ services:
       - POSTGRES_PASSWORD=diego
       - POSTGRES_USER=diego
       - POSTGRES_DB=diego
-      - TZ=America/Bogota  # Agregar la zona horaria
+      - TZ=America/Bogota
 
   redis-master:
     container_name: redis-master
@@ -19,7 +19,7 @@ services:
     environment:
       - REDIS_REPLICATION_MODE=master
       - REDIS_PASSWORD=redispassword
-      - TZ=America/Bogota  # Agregar la zona horaria
+      - TZ=America/Bogota
     ports:
       - "6379:6379"
 
@@ -31,7 +31,7 @@ services:
       - REDIS_MASTER_HOST=redis-master
       - REDIS_MASTER_PASSWORD=redispassword
       - REDIS_PASSWORD=redispassword
-      - TZ=America/Bogota  # Agregar la zona horaria
+      - TZ=America/Bogota
     ports:
       - "7000:6379"
     depends_on:
@@ -45,7 +45,7 @@ services:
       - REDIS_MASTER_HOST=redis-master
       - REDIS_MASTER_PASSWORD=redispassword
       - REDIS_SENTINEL_DOWN_AFTER_MILLISECONDS=10000
-      - TZ=America/Bogota  # Agregar la zona horaria
+      - TZ=America/Bogota
     depends_on:
       - redis-master
       - redis-slave

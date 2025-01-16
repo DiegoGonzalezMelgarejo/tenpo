@@ -42,12 +42,11 @@ class CalculateUseCaseImplTest {
                 .expectNext(expectedResult)
                 .verifyComplete();
 
-        Mockito.verify(percentagePortMock, Mockito.times(1)).getPercentage();  // Verificamos que el método getPercentage() fue llamado
+        Mockito.verify(percentagePortMock, Mockito.times(1)).getPercentage();
     }
 
     @Test
     void testCalculateError() {
-        // Dado
         BigDecimal num1 = BigDecimal.valueOf(100);
         BigDecimal num2 = BigDecimal.valueOf(50);
         CalculateDto calculateDto = new CalculateDto();
@@ -59,6 +58,6 @@ class CalculateUseCaseImplTest {
                 .expectError(RuntimeException.class)
                 .verify();
 
-        Mockito.verify(percentagePortMock, Mockito.times(1)).getPercentage();  // Verificamos que el método getPercentage() fue llamado
+        Mockito.verify(percentagePortMock, Mockito.times(1)).getPercentage();
     }
 }
